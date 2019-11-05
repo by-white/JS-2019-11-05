@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+             1. window 
+                全局打印this
+                函数 + 括号
+                定时器
+                (function(){})()
+
+             2. 事件触发的元素
+                只要是事件函数内的this都指向事件出发的元素
+             3. 点前面的主
+             4. 实例
+                构造函数下的this是实例,构造函数原型的this也是实例(实例调用)
+             5.箭头函数
+                指向的是声明箭头函数的上下文this
+
+                没有argument,不能new
+        
+        */
+
+        /* document.onclick = fn;
+        function fn(){
+            alert(this); //this指向document
+        } */
+
+        /* document.onclick = fn();
+        function fn(){
+            alert(this); //this指向window
+        } */
+        /* document.onclick = (function(){
+            console.log(this);  //this指向window
+            return function fn(){
+            console.log(this);  //this指向document 
+            }
+        })(); */
+        /* document.onclick = function(){
+
+        } */
+
+        /* document.onclick = function(){
+            setTimeout (function(){
+                console.log(this); //this指向window
+            },1000);
+        }  */
+
+       /*  document.onclick = function(){
+            setTimeout (new fn,1000);
+            function fn(){
+                console.log(this);  //fn{} 报错
+            }
+        }  */
+       /*  var name = '小强';
+        var obj = {
+            name :'zf',
+            getName : function(){
+                console.log(this.name)//this指向obj
+            }
+        }
+        setTimeout(obj.getName,1000);//this指向window
+       // obj.getName() // this指向window */
+
+      /*  function Fn(){
+           this.name = 'zf';
+       }
+       Fn.prototype.name = '小明';
+       Fn.name = '小强';
+       Function.prototype.name = '小花';
+       console.log(Object.name); //Object
+       console.dir(Object); //Object */
+
+      /*  function Fn(){
+           this.name1 = 'zf';
+       }
+       Fn.prototype.name1 = '小明';
+       Fn.name1 = '小强';
+       Function.prototype.name1 = '小花';
+       console.log(Object.name1); //小花 
+       
+       function Object(){} ->
+       Function.prototype
+       
+       
+       */
+
+       /* function Fn(){
+           this.name1 = 'zf';
+       }
+       Fn.prototype.name1 = function(){
+        console.log(this)
+       }
+       Fn.name1 = function(){
+        console.log(this)
+       };
+       Function.prototype.name1 =function(){
+        console.log(this)
+       };
+       new Fn().name1();  //报错 */
+
+       /* function Fn(){
+          // this.name1 = 'zf';
+       }
+       Fn.prototype.name1 = function(){
+        console.log(this)
+       }
+       Fn.name1 = function(){
+        console.log(this)
+       };
+       Function.prototype.name1 =function(){
+        console.log(this)
+       };
+       new Fn().name1();  //Fn{} */
+       
+       /* document.onclick = function(){
+           let fn = () =>{
+           console.log(this);
+       }
+       fn();
+       } */
+   
+    </script>
+</body>
+</html>
