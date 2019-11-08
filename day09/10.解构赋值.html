@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*  无关题
+    //var a=0,b=0;
+        function A(a){
+            A=function(b){
+                console.log(a+b++);
+            }
+            console.log(a++);
+        }
+        A(1); 1
+        A(2); 4 
+    */
+    
+   /*  var a = 5, b = 10
+
+     //数组的解构赋值:
+      let [x,y] = [a];
+      console.log([x,y]); //[5, undefined]
+      //声明的时候一定要是个数组,左右两边的结构保持一致
+
+      //以下全是报错,数组两边结构不一致 */
+    /*  
+    let [foo] = 1;
+    let [foo] = false;
+    let [foo] = NaN;
+    let [foo] = undefined;
+    let [foo] = null;
+    let [foo] = {}; 
+    */
+    /* var a = 10;
+    var b = 5;
+
+    //互换a,b的位置然后输出,由此引出解构赋值
+    var [b,a] = [a,b];
+    console.log(a,b) */
+    
+   /*  let [ x=2,y=3] = [1];//从左往右一一对应, 没有赋值操作则原值不变
+    console.log(x,y); //1,3
+
+    //如何输出1,2
+    let [[a,[b,[c,d,[[[e],f,g]],h]],i]] = [[0,[3,[3,3,[[[6],1,2]],7]],9]]
+    console.log(f,g)//1,2
+ */
+    /* //let [x=y,y=0] = [];  //输出显示y没有声明
+    var [x=y,y=0] = [];  //undefined 0  var全局声明
+    console.log(x,y); */
+  /*   
+    function f() {
+         console.log('aaa');
+     }
+     let [x = f()] = [1];
+     console.log(x); //1 */
+     /* function f() {
+         console.log('aaa');
+     }
+     let x;
+     if ([1][0] === undefined) {//[1][0]为数组[1]的第一项的值为1
+         x = f();
+     } else {
+         x = [1][0];
+     }
+     console.log(x);//答案为1 [1][0]为数组[1]的第一项的值为1
+ */
+
+    /* //互换a,b的位置
+    var a = 10;
+    var b = 5;
+   //let c = a;
+   // a = b;
+   // b = c;
+    //互换a,b的位置
+    a = a + b; //15
+    b = a - b;//15-5  10
+    a = a - b;//15-10 5
+    console.log(a,b); */
+    </script>
+</body>
+</html>
