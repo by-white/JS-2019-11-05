@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            this实例   95%  5%是点击元素
+
+            没有思路
+                多敲,多想(程序逻辑思想是可以记忆的)
+
+                例如选项卡: 
+                        1.获取元素
+                        2.绑定事件
+                        3.点击切换
+                            先把所有的class清掉
+                            再把当前的加上
+
+                    面向对象需要大量的业务逻辑去累积
+
+                先写出来,然后改为面向对象:
+                1.把所有的变量放到类中,把变量变成属性
+                2.把函数抽出来,挂到构造函数的原型上
+
+                程序确实需要经验(沉淀)
+
+                知识点都不难,逻辑思想难
+
+                ***每个案例,都要好好敲
+
+            对象的解构赋值
+
+            // let obj = {
+                //     p: [
+                //         'Hello',
+                //         {
+                //             y: 'World',
+                //             z:{
+                //                 x:[
+                //                     {
+                //                         j:0
+                //                     }
+                //                 ]
+                //             }
+                //         }
+                //     ]
+                // };
+
+                // function move({x=0,y=0}={}){
+                //     return [x,y];
+                // }
+
+                // move({x:3,y:8}); //[3,8]
+                // move({x:3}); //[3,0]
+                // move({}); //[0,0]
+                // move(); //[0,0]
+
+
+                //  function move({x=0,y=0}={x: 0, y: 0}){
+                //     return [x,y];
+                // }
+
+                // move({x:3,y:8}); //[3,8]
+                // move({x:3}); //[3,0]
+                // move({}); //[0,0]
+                // move(); //[0,0]
+
+                // document.onclick = function(){
+                //     function ff(){//局部变量
+                //         let fn = () =>{
+                //             console.log(this); //ff{}
+                //         }
+                //         fn();
+
+                //     }
+                //     new ff();
+                // }
+
+                
+
+
+
+            call的使用
+
+            箭头函数的
+        
+        */
+
+         
+       /*  Array.prototype.mySlice = function(){
+        let arr = [];
+        for(let i=0;i<this.length;i++){
+            arr.push(this[i])
+            }
+            return arr;
+        } */
+        
+    //Object.prototype.toString.call() 等同于 ({}).toString.call()
+   
+
+  /*   let ary = [1,2,3];
+    function ff(){
+        let arg = [].mySlice.call(arguments);
+        console.log(arg);
+    }
+    ff(1,2,3,3,4,5,6,9);
+
+    console.log(ary.mySlice()); */
+
+
+    // let obj = {
+    //     p: [
+    //         'Hello',
+    //         {
+    //             y: 'World',
+    //             z:{
+    //                 x:[
+    //                     {
+    //                         j:0
+    //                     }
+    //                 ]
+    //             }
+    //         }
+    //     ]
+    // };
+
+    // let {
+    //     p: [
+    //         a,
+    //         {
+    //             y: b,
+    //             z:{
+    //                 x:[
+    //                     {
+    //                         j:c
+    //                     }
+    //                 ]
+    //             }
+    //         }
+    //     ]
+    // } = obj;
+
+    // console.log(a,b,c);
+
+    // function move({x=0,y=0}={}) {
+    //     return [x, y];
+    // }
+
+    // function move({x=0,y=0}={}) { //有就走传递的，没有就走默认的
+    //     return [x, y];
+    // }
+    // let {log} = console;
+    // log (move({x: 3, y: 8}) );//[3,8]
+    // log (move({x: 3})); //[3,0]
+    // log( move({}) ); //[0,0]
+    // log (move() );//[0,0] //因为没有传递实参，形参解构不出来，就会报错
+
+
+
+
+    // function move({x, y} = { x: 0, y: 0 }) {
+    //     return [x, y];
+    // }
+
+    // move({x: 3, y: 8}); 
+    // move({x: 3}); 
+    // move({});
+    // move();
+
+
+    // function ff({x=100}={}){
+    //     // console.log(obj.x);
+    //     console.log(x);
+    // }
+
+    // function ff({x}={x:100}){
+    //     console.log(x);
+    // }
+    // ff();
+
+    // let {x=1} = {x:100}
+        
+        
+    // document.onclick = function(){
+    //         function ff(){//局部变量
+    //         /* let fn = () =>{
+    //          console.log(this); //ff{}
+    //         } */
+    //         console.log(this);
+    //         //fn();
+    //         }
+    //          // console.log(this);
+    //         new ff(); 
+    // }
+    
+    </script>
+</body>
+</html>

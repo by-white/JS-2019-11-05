@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            面向对象的特征:
+                封装,继承,多态
+
+            继承:
+                子类具有父类的一部分的特征(这部分相同的特征是从父类继承下来的),自己还有自己的特征
+            
+            人:
+                直立行走,使用工具,会说高级语言,是有感情的
+            
+            警察:
+                人 : 配枪,正义的化身,穿警服,戴警帽,开警车...
+
+
+            继承方式很多:
+                类式继承(call继承)
+                原型继承
+                寄生式组合继承
+                拷贝继承
+                对象继承
+                class继承
+                ...
+
+                继承最后的结果是 能够继承父类的属性和方法
+
+                继承属性:
+                    调用父类,通过call把this变为子类的实例即可(call继承)
+
+                    例子:
+                //function Police(name,age,///job) {
+                    //this -> 实例
+                // Person.call(this,name,age)
+                //}
+
+                方法继承:
+                    通过浅拷贝,把父类上原型的方法或者属性都赋值给子类的原型
+                    ***Object.assigin(子类.prototype,父类.prototype)***
+            
+        */
+        //函数 类 实例
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.say = function () {
+            alert('我的名字叫' + this.name)
+        }
+
+        //let p1 = new Person('刘成', 18);
+
+        //console.log(p1);
+
+
+
+
+        function Police(name, age, job) {
+            //this -> 实例
+            Person.call(this, name, age)
+        }
+        /*  Police.prototype.say = function() {
+             alert('我的名字叫'+this.name)
+         }
+         Police.prototype.gf = function() {
+             alert('对不起,我是警察!');
+         }
+         */
+
+        /* 
+         Police.prototype  002
+         
+         Person.prototype  002
+        */
+
+        //下面这种写法是不可取的,因为2个原型赋值了,修改A就会影响B
+        Police.prototype = Person.prototype;
+        let p2 = new Police('刘成', 18);
+
+        Police.prototype.say = function () {
+            alert('对不起,我是警察!');
+        }
+        let p3 = new Police('梁朝伟', 18);
+        // console.log(p3.say()) ;
+        p2.say();
+        p.say();
+
+    </script>
+</body>
+
+</html>
