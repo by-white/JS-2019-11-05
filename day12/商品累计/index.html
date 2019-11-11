@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="price.css" />
+	</head>
+
+	<body onselectstart="return false;">
+		<div class="wrap">
+			<div class="box">
+				<ul class="list">
+					<li>
+						<i id="delete"></i>
+						<em id='content'>0</em>
+						<i id="add"></i>
+						<span>
+							单价：<strong id="singleP">12.5元 </strong> 小计：<strong id="allP">0元</strong>
+						</span>
+					</li>
+					<li>
+						<i id="delete"></i>
+						<em id='content'>0</em>
+						<i id="add"></i>
+						<span>
+							单价：<strong id='singleP'>10.5元 </strong> 小计：<strong id="allP">0元</strong>
+						</span>
+					</li>
+					<li>
+						<i id="delete"></i>
+						<em id='content'>0</em>
+						<i id="add"></i>
+						<span>
+							单价：<strong id='singleP'>8.5元 </strong> 小计：<strong id='allP'>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i id="delete"></i>
+						<em id='content'>0</em>
+						<i id="add"></i>
+						<span>
+							单价：<strong id='singleP'>8元 </strong> 小计：<strong id="allP">0元</strong>
+						</span>
+					</li>
+					<li>
+						<i id="delete"></i>
+						<em id='content'>0</em>
+						<i id="add"></i>
+						<span>
+							单价：<strong id='singleP'>14.5元 </strong> 小计：<strong id="allP">0元</strong>
+						</span>
+					</li>
+				</ul>
+				<div class="info">
+					<span>商品公合计：<em id="sumT">0</em>件</span>
+					<span>共花费了：<em id="sumP"> 0</em>元</span>
+					<br />
+					<br />
+					<span>其中最贵的商品单价是：<em id="expensive">0</em>元</span>
+				</div>
+			</div>
+		</div>
+		<script>
+			let liList = document.querySelectorAll('.list li');
+			let addList = document.querySelectorAll('#add');
+			let contentList = document.querySelectorAll('#content');
+			let deleteList = document.querySelectorAll('#delete');
+			let singleP = document.querySelectorAll('#singleP');
+			let aLLP = document.querySelectorAll('#allP');
+			let sumT = document.getElementById('sumT');
+			let sumP = document.getElementById('sumP');
+			let exp = document.getElementById('expensive');
+			let myA= 0;
+			let myD= 0;
+			
+			
+			for(var i = 0; i < addList.length; i++){
+				let num = 0;
+				addList[i].myA = i;
+				deleteList[i].myD = i;
+
+				addList[i].onclick = function(){
+					num+=1;
+					if (num >= 0) {
+						sumP.innerHTML = 0;
+						contentList[this.myA].innerHTML = num;
+						allP[this.myA].innerHTML = parseFloat(singleP[this.myA].innerHTML)*num+'元';
+					}else{
+						num=0;
+					}
+				}
+				deleteList[i].onclick = function(){
+					num-=1;
+					if (num >= 0) {	
+						contentList[this.myD].innerHTML = num;
+						allP[this.myD].innerHTML = parseFloat(singleP[this.myD].innerHTML)*num+'元';
+					}else{
+						num=0;
+					}
+					sumP.innerHTML = allP[this.myD].innerHTML;
+				}
+			}
+			
+			function sum(index){
+				function fn(){
+					x += index;
+				}
+				return fn();
+			}
+			console.dir(sum);
+				
+			
+			
+			
+			
+			
+
+
+
+			
+		</script>
+	</body>
+
+</html>

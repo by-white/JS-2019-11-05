@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+       /*  //window.x = 1;   window.y = 2;
+        var x = 1,
+        y = 2;
+       
+        function fn() {
+             
+                //预解析:
+               // var x   
+             
+            console.log(x,y);//undefined,2       因为函数内有声明局部变量x,所以不去全局找全局变量x
+            var x = y = 3;   //此时的var x为局部变量,不影响全局变量的x
+             
+               // x = y = 3   window.y = 3
+             
+            console.log(x,y);//3,3
+        }
+        fn();
+        console.log(x,y);//1,3 */
+
+
+
+       /*  2,undefined,3
+        4,5,6      
+        1,undefined,6 */
+
+
+        /* 
+            '10 | 20 | 30 | 40'
+            '200 & 30 & 40 & 100'
+            '10 , 20 , 30 , 40 ,100'
+         */
+
+        /* 
+           不是闭包
+         13  x = 6  7+6
+         16  x = 7  9+7
+         18  x = 8  10+8
+
+         x = 8
+        */
+
+        /* 
+          闭包
+           x = 6  +  7  13
+           x = 6  +  9  15
+           x = 7  +  10 17       
+        */
+
+        /* 
+        2   1,1   x=1
+        3   2,1   x=2
+
+        2,1
+
+        //正确答案
+            //window.x += 2  此时x = 2
+
+fn(3)第一次:赋值fn
+            window.fn = function(y){
+                console.log(y+(--x));
+            };
+fn(4)第二次:   x=2   4+2-1 =5
+               x=1
+               全局变量y=1
+           
+
+
+            2,1
+
+            5
+
+            1,1
+        */
+
+        /* 
+        
+        匿名函数自执行this指向window
+        
+
+
+        */
+
+
+
+
+    </script>
+</body>
+</html>
