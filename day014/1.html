@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const cap=([first,...rest])=>{
+        console.log(first,'========',...rest,[first,...rest])
+        return first.toUpperCase()+rest.join('')}
+    let c=cap('fooBar')
+    let cc=cap('fooBar',true)
+    console.log(c)
+    console.log(cc)
+    </script>
+</body>
+</html>
