@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            height: 2000px;
+        }
+        #box{
+            width: 100px;
+            height: 50px;
+            font-size: 25px;
+            background: red;
+            color: aliceblue;
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<div id="box">回到顶部</div>
+<body>
+    <script>
+        /* 
+            滚轮事件:(当有滚动条的时候,滚轮即触发该事件)
+                onscroll
+
+                scrollHeight   被内容撑开的高度(关联盒子模型)
+
+                scrollLeft/scrollTop   滚动条的距离
+
+        */
+        const {offsetTop} = box;
+        console.log(offsetTop);
+        onscroll = function(){
+            //console.log(document.documentElement.scrollTop);
+            //console.log(box.offsetTop);
+            let{scrollTop} =document.documentElement;
+            //小于等于滚动条的距离,就让盒子fixed定位
+            if(offsetTop<scrollTop){
+                //alert('1');
+                box.style.position = 'fixed';
+                box.style.top = '50%';
+            }else{
+            box.style.position = 'absolute';
+            box.style.top = '100%';
+            }
+        }
+
+        box.onclick = function(){
+            document.documentElement.scrollTop = 0;
+           // box.style.top = '0';
+        }
+
+
+    </script>
+</body>
+</html>

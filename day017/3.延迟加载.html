@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //原型  原型链
+        function A1(name) {
+            this.name = name;
+        }
+        function A2(name) {
+            this.name = name || 'Jerry';
+        }
+        function A3(name) {
+            name && (this.name = name);
+        }
+        A1.prototype.name = 'Tom';
+        A2.prototype.name = 'Tom';
+        A3.prototype.name = 'Tom';
+        alert((new A1().name) + (new A2().name) + (new A3().name));
+                //'Tom'  +  'Tom'  +  'Tom'
+    </script>  
+</body>
+
+</html>
