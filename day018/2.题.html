@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a1 = 4,
+            a2 = [1, 2],  //[1,2,3] 
+            x = 6;
+        function f() {
+            console.log(this.x); 
+        }
+        f();  //6
+        function b(x, y, z) {
+            console.log(arguments);  //4,[1,2],f
+            arguments[0] = 10;  // 10,[1,2],f
+            arguments[1].push(3); // 10,[1,2,3],f  
+            arguments[2]();// undefined   找的是arguments中的x 
+            console.log(arguments);  //10,[1,2,3],f
+            y = []; //10,[],f
+            console.log(x, y); //10,[]
+        }
+        b(a1, a2, f);
+        console.log(a1, a2); 
+
+    </script>
+</body>
+
+</html>
