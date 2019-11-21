@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   <!--  <script>
+     window.onload = function(){
+        const box = document.getElementById('box');
+        //console.log(box);可以获取到
+        console.log(3) //第三次才输出
+     }
+     const box = document.getElementById('box');
+     //console.log(box);获取不到
+     console.log(1)//第一次才输出
+    </script> -->
+</head>
+<body>
+    <div id="box"></div>
+    <select name="" id="">
+        <option value="">北京</option>
+        <option value="">上海</option>
+        <option value="">土耳其</option>
+    </select>
+    <input type="text" id="txt"><span id="span">0</span>/10字
+    <input type="text" id="txt" max="10"><span id="span">0</span>/10字
+    <!-- <input type="file" id="f"> -->
+    <script>
+        /* 
+        事件
+            onclick     点击
+            onmouseover     移入
+            onmouseout      移出
+            onload      当静态资源加载完成之后执行函数中的代码
+            onchange    输入框失焦改变之后触发(select改变value值也会触发)
+            oninput     输入内容的时候触发
+            onerror     加载失败
+            onresize    可视区窗口发生变化
+            onscroll    滚动条发生变化
+
+            onblur      失焦**表单元素**
+            onfocus     聚焦**表单元素**
+
+            onmousedown 鼠标按下
+            onmouseup   鼠标抬起
+            onmousemove 鼠标滑动
+            onmouseenter 鼠标移入
+            onmouseleave 鼠标移出
+            onmousewheel 鼠标滚轮
+
+        如果没有添加事件,某个元素身上有事件吗?
+
+        //当一个元素创建出来的时候,天生就有事件,只不过事件的默认值为null
+        //如果某个元素有这个事件,默认值为null,如果没有这个事件,那么这个事件值为undefined
+        //当用户操作页面的时候,浏览器会监听用户的操作行为,
+        btn.onclick = function(){
+            alert(1);
+        }
+        */
+        const box = document.getElementById('box');
+        //console.log(box);
+        console.log(2)//第二次才输出
+
+        /* txt.onchange = function(){
+            console.log(1);
+        } */
+      /*   f.onchange = function(){
+            console.log(1);
+        } */
+     /*    txt.oninput = function(){
+            console.log(1);
+            span.innerText = this.value.length;
+        } */
+
+       /*  btn.onclick = function(){
+            alert(1);
+        } */
+        txt.onblur = function(){
+            console.log(1);
+            span.innerText = this.value.length;
+        }
+        txt.onfocus = function(){
+            console.log(1);
+        }
+        console.dir(txt);
+    </script>
+</body>
+</html>
