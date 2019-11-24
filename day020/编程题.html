@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body>
+        <div id='box' style='background:red'></div>
+        <button>红</button>
+        <button>绿</button>
+        <button>蓝</button>
+    </body>
+    <script>
+        //1.预期效果： 点击每一个按钮让#box的背景颜色改变为数组中对应的某种颜色
+        /*  var box=document.querySelector('#box'),
+            btnList=document.querySelectorAll('button'),
+            colorAry=['red','green','blue']; */
+        /* for(var i=0;i<btnList.length;i++){
+            //console.log(btnList);
+            //console.log(colorAry);
+            btnList[i].index = i;
+            btnList[i].onclick=function(){
+            box.style.height = '100px';
+            box.style.width = '100px';
+            //console.log(i);
+            box.style.background=colorAry[this.index];
+            }
+        } */
+        /*  btnList.forEach((ele,i) => {
+             ele.onclick=function(){
+             box.style.height = '100px';
+             box.style.width = '100px';
+             console.log(i);
+             box.style.background=colorAry[i];
+             }
+         }); */
+
+        /*2. 编写一个方法“flatten”，将数组扁平化 （至少两种办法） */
+        //let arr = [[1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9,[11, 12, [12, 13, [14]]]], 10];
+
+
+
+
+
+        /* 3.
+          function Dog(name) {
+              this.name = name;
+          }
+          Dog.prototype = {
+              bark() {
+                  console.log('wangwang');
+              },
+              sayName() {
+                  console.log('my name is ' + this.name);
+              }
+          };
+          function _new() {
+              //=>完成你的代码
+  
+          }
+          let sanmao = _new(Dog, '三毛');
+          sanmao.bark(); //=>"wangwang"
+          sanmao.sayName(); //=>"my name is 三毛"
+          console.log(sanmao instanceof Dog); //=>true */
+
+        /* 
+          4.重写call
+            Function.prototype.mycall = function(that,...arg){
+            let type = typeof that;
+            if(that === null || that === undefined){
+                that = window;
+            }else{
+                switch(type){
+                    case 'string':
+                        that = new String(that);
+                    break;
+                    case 'boolean':
+                        that = new Boolean(that);
+                    break;
+                    case 'number':
+                        that = new Number(that);
+                    break;
+                }
+            }
+         */
+        /*  
+         //5.请编写一个create方法； 用法等用于 Object.create()
+         // Object.create()方法用法如下
+         var obj = { a: 12, b: 23 };
+         var o = Object.create(obj);
+         // 结果是 o是个空对象， o的__proto__ 是 obj
+         function create(pro) {
+             // 你的代码
+         } 
+         function _create(obj){
+                 function C(){}
+             C.prototype = obj;
+                return new C();
+            }
+         
+         */
+        /* //6.请编写一个debounce方法 可以实现函数的防抖
+        function debounce(cb, time) {
+            let timer;
+            return function (...arg) {
+                //当事件触发的时候就先关闭上次的timer
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(() => {
+                    cb.call(this, ...arg);
+                }, time);
+            }
+        } */
+
+        /*  //7. 给定两个数组，写一个方法来计算它们的交集。
+         //例如：给定 nums1 = [1, 2, 2, 1]，nums2 = [2, 2]，返回 [2, 2]。 */
+
+
+        /*  //8. 模板引擎实现
+         let template = '我是{{name}}，年龄{{age}}，性别{{sex}}';
+         let data = {
+             name: '姓名',
+             age: 18,
+             sex: '男'
+         }
+         render(template, data); // 我是姓名，年龄18，性别男
+ 
+         // 实现render方法
+         function render(newdata) {
+             //lis就是数据生成的结构
+             let lis = newdata.map(({ title, img, price, time, hot }, i) => {
+                 //    const {title,img,price,time,hot} = item;
+                 return (
+                     `<li>
+                     <img src="${img}" alt="">
+                     <p
+                         title="${title}"
+                     >商品名称:<span>${title.substr(0, 6)}</span></p>
+                     <p>上架时间:<span>${time}</span></p>
+                     <p>商品热度:<span>${hot}</span></p>
+                     <p>商品价格::<span>${price}</span></p>
+                 </li>`
+                 );
+             }).join('');
+             ul.innerHTML = lis;
+         }
+         render(newdata);
+  */
+
+
+        /* // 9. 编写queryURLParams方法实现如下的效果
+       
+       let url="http://www.zhufengpeixun.cn/?lx=1&from=wx#video";
+       console.log(url.queryURLParams("from")); //=>"wx"
+       console.log(url.queryURLParams("hash")); //=>"video"
+       console.log(url.queryURLParams()); //=>{lx:'1',from:'wx',hash:'video'} */
+
+        //10. 如何获取一个字符串中出现次数最多的字符 及其 出现的次数
+
+        function most(str){
+        let str1 = '';
+        let str2 = '';
+        let ary1 = [];
+        let ary2 = [];
+        for (let i = 0; i < str.length; i++) {
+            ary1[i] = str.match(/\w/).toString();
+            str1 = str.match(/\w/).toString(); 
+            str2 = str.replace(new RegExp(str1,'g'),'');
+            ary2[i] = str.length-str2.length;
+            str = str.replace(new RegExp(str1,'g'),'');
+        }
+        //console.log(ary1);
+        //console.log(ary2);
+        ary2.indexOf(Math.max(...ary2));
+        console.log("他出现了:"+Math.max(...ary2)+'次');
+        console.log("他是:"+ary1[Math.max(ary2.indexOf(Math.max(...ary2)))]);
+    }
+    most(str2)
+        var str = 'werwersdfwerwgfgsrtertwertdg';
+        getMax(str)// {key:'w', num:6}
+
+
+
+    </script>
+</body>
+
+</html>
