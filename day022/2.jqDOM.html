@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="pb">
+        <div class="pb">
+            <div id="box">1</div>
+        </div>
+    </div>
+    <div class="pb">4</div>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    /* 
+        插入到某个元素的前面
+        $('#box').before($('<div>2</div>'));
+
+        关系:
+            父子,兄弟
+
+            parentNode  - > parent()
+
+            previousElementSibling -> prev()
+
+            nextElementSibling  - > next()
+
+            parents()  - > 某个元素的所有祖先节点,括号中可以精确匹配
+
+            $('div').siblings()  当前元素的上兄弟节点和下兄弟节点
+
+            index('button')方法  顺序默认基于父级,也可以精确匹配
+    */
+           /*  $('#box').before($('<div>2</div>'));
+
+            console.log($('#box').parents('.qb'));//精确父级
+            console.log($('#box').parents());//所有祖先 */
+
+            $('button').click(function(){
+                console.log(this);  //button 普通对象
+                console.log($(this)[0]);     //button jqeury对象
+                console.log($(this).index('button'));
+            })
+
+            /* var name = 'erYa';
+            var age = 18;
+            name = (function(name,age){
+                arguments[1] = 'xiaohua';
+                name = name && this.age;
+                console.log(name,age);
+                function fn(){
+                    return 'erYa'
+                }
+            })(name,age)
+            console.log(name,age) */
+
+</script>
+</body>
+</html>
