@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+ul,
+ol {
+  list-style: none;
+}
+#box {
+  width: 1040px;
+  height: 600px;
+  background: rgba(250, 128, 114, 0.5);
+  border: 5px solid yellowgreen;
+  box-shadow: 2px 2px 5px 1px #000;
+  margin: 50px auto;
+}
+#box #b {
+  width: 0;
+  height: 0;
+  position: absolute;
+  background: rgba(200, 210, 100, 0.2);
+  border: 1px dashed green;
+  left: 0;
+  top: 0;
+  display: none;
+}
+#box #login {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 255, 255, 0.3);
+  justify-content: space-between;
+  align-items: center;
+}
+#box #login #logo {
+  width: 40px;
+  height: 40px;
+  background: seashell;
+  margin-left: 10px;
+}
+#box #login #user {
+  display: flex;
+  width: 100px;
+  height: 40px;
+  background: seashell;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+}
+#box #login #user #head-Portrait {
+  width: 40px;
+  height: 40px;
+  background: pink;
+}
+#box #login #user span {
+  font-size: 20px;
+  font-weight: 30;
+  color: rgba(235, 235, 235, 0.6);
+}
+#box #login #user #set {
+  width: 40px;
+  height: 40px;
+  background: pink;
+}
+#box #btn {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background: coral;
+  justify-content: space-between;
+  align-items: center;
+}
+#box #btn button {
+  border: 1px solid #999;
+  border-radius: 10px;
+  height: 40px;
+  padding: 0 20px;
+  background: #fff;
+  cursor: pointer;
+}
+#box #btn button:hover {
+  color: sandybrown;
+  border-radius: 10px;
+  box-shadow: 1px 1px 0px 0px #999;
+  background: #91c4f7;
+}
+#box #btn button:active {
+  border-radius: 10px;
+  color: rgba(100, 243, 253, 0.6);
+  box-shadow: 1px 1px 0px 0px #999;
+  background: #dca6f5;
+}
+#box #btn button:focus {
+  outline: 0;
+}
+#box #btn #btn-Left button {
+  margin-left: 10px;
+}
+#box #btn #btn-Right button {
+  margin-right: 10px;
+}
+#box #content {
+  display: flex;
+  justify-content: space-between;
+}
+#box #content #left {
+  width: 30%;
+  height: 490px;
+  background: lightsteelblue;
+}
+#box #content #left ul {
+  width: 80%;
+  margin: 0 auto;
+}
+#box #content #left ul li {
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+#box #content #left ul li i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: lightcoral;
+  vertical-align: middle;
+}
+#box #content #left ul li span {
+  color: #eee;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+#box #content #right {
+  width: 86%;
+  height: 490px;
+  background: lightgoldenrodyellow;
+  /*  #f{
+                width: 100%;
+                height:450px;
+                background:lightpink;
+                overflow: auto;
+                .folder{
+                    display: flex;
+                    flex-flow: column;
+                    width: 100%;
+                    height: 60px;
+                    background: chartreuse;
+                    justify-content: space-around;
+                    align-items: flex-start;
+                    img{
+                        width: 40px;
+                        height: 30px; 
+                           
+                    }
+                    p{
+                        width: 40px;
+                        height: 18px;
+                        text-align: center;
+                    }
+                    input{
+                        width: 40px;
+                        height: 18px;
+                        text-align: center;
+                    }
+                }
+            }   */
+}
+#box #content #right #check-click {
+  display: flex;
+  width: 100%;
+  background: lightslategray;
+  height: 40px;
+  align-items: center;
+}
+#box #content #right #check-click .checkAll {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin-left: 20px;
+  background: #fff;
+  border-radius: 10%;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+#box #content #right #check-click .checked {
+  background-color: rgba(0, 174, 255, 0.3);
+  border: 1px solid rgba(127, 255, 0, 0.7);
+  border-radius: 50%;
+}
+#box #content #right #check-click #breadMenu {
+  cursor: pointer;
+  color: teal;
+  font-size: 16px;
+}
+#box #content #right #check-click #breadMenu a {
+  color: teal;
+  text-decoration: none;
+  margin-left: 10px;
+}
+#box #content #right #check-click #breadMenu span {
+  margin-left: 10px;
+}
+#box #content #right #f-empty {
+  width: 100%;
+  height: 450px;
+  background: #67fdcb;
+  display: none;
+}
+#box #content #right #f {
+  width: 100%;
+  height: 450px;
+  background: lightpink;
+  overflow: auto;
+}
+#box #content #right #f .folder {
+  float: left;
+  display: flex;
+  align-self: space-around;
+  flex-flow: column;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(182, 181, 181, 0.3);
+  background: rgba(182, 181, 181, 0.1);
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0 0 20px;
+}
+#box #content #right #f .folder img {
+  width: 60px;
+  height: 40px;
+}
+#box #content #right #f .folder p {
+  width: 80px;
+  height: 18px;
+  text-align: center;
+}
+#box #content #right #f .folder input {
+  width: 80px;
+  height: 18px;
+  text-align: center;
+}
+#box #content #right #f .active {
+  border: 1px solid rgba(58, 255, 212, 0.6);
+  background: rgba(58, 255, 212, 0.2);
+}
+#box #moveF {
+  position: absolute;
+  display: none;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 400px;
+  height: 500px;
+  background: bisque;
+  border: 5px solid violet;
+  border-radius: 5%;
+  left: 600px;
+  top: 100px;
+  box-shadow: 2px 2px 5px 1px #000;
+}
+#box #moveF #mTop {
+  display: flex;
+  justify-content: space-between;
+  width: 360px;
+  height: 40px;
+}
+#box #moveF #mTop p {
+  font-size: 20px;
+  font-weight: 900;
+}
+#box #moveF #mTop span {
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+}
+#box #moveF span {
+  font-size: 14px;
+  align-self: flex-start;
+  text-indent: 20px;
+  color: yellowgreen;
+}
+#box #moveF #moveT {
+  width: 360px;
+  height: 380px;
+  background: azure;
+}
+#box #moveF #moveT ul {
+  width: 80%;
+  margin: 0 auto;
+}
+#box #moveF #moveT ul li {
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+#box #moveF #moveT ul li i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: lightcoral;
+  vertical-align: middle;
+}
+#box #moveF #moveT ul li span {
+  color: #b9f727;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+#box #moveF #mBottom {
+  display: flex;
+  justify-content: flex-end;
+  width: 360px;
+  height: 30px;
+  align-items: center;
+}
+#box #moveF #mBottom button {
+  border: 1px solid #999;
+  border-radius: 10px;
+  width: 40px;
+  height: 20px;
+  background: #fff;
+  margin-left: 10px;
+  cursor: pointer;
+}
+#box #moveF #mBottom button:hover {
+  color: sandybrown;
+  border-radius: 10px;
+  box-shadow: 1px 1px 0px 0px #999;
+  background: #91c4f7;
+}
+#box #moveF #mBottom button:active {
+  border-radius: 10px;
+  color: rgba(100, 243, 253, 0.6);
+  box-shadow: 1px 1px 0px 0px #999;
+  background: #dca6f5;
+}
+#box #moveF #mBottom button:focus {
+  outline: 0;
+}
