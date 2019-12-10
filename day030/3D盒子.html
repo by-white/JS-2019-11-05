@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+*{
+    margin:0;
+    padding:0
+}
+#warp{
+    position: relative;
+    width:300px;
+    height:300px;
+    margin:10% auto;
+    border:1px solid #000;
+}
+#box{
+    width:100px;
+    height:100px;
+    border:1px solid #000;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(-80deg);
+  animation: rotate 20s infinite;
+    transition: 1s;
+    margin: 20% auto;
+}
+#box div{
+    width:100px;
+    height:100px;
+    position: absolute;
+    top:0;
+    left:0;
+    transition: all .4s;
+}
+#box div:nth-of-type(1){
+    background:red;
+    transform: rotateY(0deg) translateZ(100px);
+}
+#box div:nth-of-type(2){
+    background:blue;
+    transform: translateZ(-100px) rotateY(180deg);
+   
+}
+#box div:nth-of-type(3){
+    background:green;
+    transform: rotateY(90deg) translateZ(100px);
+    
+}
+#box div:nth-of-type(4){
+    background:yellow;
+    transform: rotateY(-90deg) translateZ(100px);
+   
+}
+#box div:nth-of-type(5){
+    background:greenyellow;
+    transform: rotateX(90deg) translateZ(100px);
+    
+}
+#box div:nth-of-type(6){
+    background:skyblue;
+    transform: rotateX(-90deg) translateZ(100px);
+   
+}
+
+/* #warp:hover > #box{
+    transform:rotateX(150deg);
+} */
+@keyframes rotate{
+  from{transform: rotateX(0deg) rotateY(0deg);}
+  to{transform: rotateX(360deg) rotateY(360deg);}
+}
+
+</style>
+</head>
+<body>
+    <div id="warp">
+        <div id="box">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </div>
+</body>
+</html>
