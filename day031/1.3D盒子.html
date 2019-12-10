@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            list-style: none;
+        }
+        #wrap{
+            width: 500px;
+            height: 500px;
+            margin: 20% auto;
+            border: 1px solid #000;
+            perspective:5000px ;
+        }
+        #box{
+            width: 500px;
+            height: 500px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: 250px 250px 250px;
+            transform: scale(.1);
+            transition: .3s;
+        }
+        li{
+            width: 500px;
+            height: 500px;
+            line-height: 500px;
+            font-size: 50px;
+            position: absolute;
+            text-align: center;
+            opacity: 0.3;
+            left: 0;
+            top: 0;
+        }
+        ul li:nth-child(1){
+            background: chartreuse;
+        }
+        ul li:nth-child(2){
+            background: coral;
+            transform-origin: bottom;
+            transform: rotateX(-90deg);
+        }
+        ul li:nth-child(3){
+            background: cyan;
+            transform-origin: right;
+            transform: rotateY(90deg);
+        }
+        ul li:nth-child(4){
+            background: darkorchid;
+            transform-origin: top;
+           transform: rotateX(90deg);
+        }
+        ul li:nth-child(5){
+            background: dimgray;
+            transform-origin: left;
+            transform: rotateY(-90deg);
+        }
+        ul li:nth-child(6){
+            background: khaki;
+            transform: translateZ(500px);
+        }
+        @keyframes rotate{
+            from{transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+            to{transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul id="box">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+
+
+
+    <script>
+        /* 
+
+        
+        */    
+    </script>
+</body>
+</html>

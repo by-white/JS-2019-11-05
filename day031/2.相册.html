@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #box{
+        width: 900px;
+        height: 900px;
+        position: relative;
+        perspective:2000px;
+        transform-style: preserve-3d;
+        transform:scale(.3);
+        margin: 2% auto;
+    }
+    #box div{
+        width: 90px;
+        height: 90px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('img/1.jpg') no-repeat;
+        transition: 2s;
+        /* transform:skewX() */
+    }
+    </style>
+</head>
+<body>
+    <div id="box"></div> 
+    <script>
+        /* 
+            51px * 10 => 510px
+        */
+        const w = 90;
+        let temp = '';
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                temp += `<div data-x="${-i*w}" data-y="${-j*w}" style="top:${i*w+'px'};left:${j*w+'px'};background-position:${-j*w+'px'} ${-i*w+'px'};"></div>`     
+            }
+        }
+        box.innerHTML = temp;
+        let child = box.children;
+        //console.log(child);
+        let num = 1;
+        box.onclick = function(){
+            for (let i = 0; i < child.length; i++) {
+                //console.log(child[i].dataset)
+               const {x,y} = child[i].dataset;
+               child[i].style.top =  -(x)*1+ random(-500,500) + 'px';
+               child[i].style.left =  -(y)*1  + random(-500,500) +'px';
+               child[i].style.transform =  `skewX(${random(-45,45)}deg) translateZ(1000px)`;
+            }
+            setTimeout(()=>{
+                for (let i = 0; i < child.length; i++) {
+                    const {x,y} = child[i].dataset;
+                    child[i].style.top = -(x)*1  + 'px';
+                    child[i].style.left = -(y)*1 + 'px';
+                    child[i].style.transform = `skewX(0deg) translateZ(0px)`;   
+                }
+            },2100);
+        }
+        function random(n,m){
+            return Math.round(Math.random() * (m-n)) + n;
+        }
+    </script>
+</body>
+</html>
