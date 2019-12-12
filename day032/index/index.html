@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function refreshRem(){
+            var des = 750,//设计图的宽度
+                winW = window.screen.width,
+                ratio = winW / des,
+                html = document.documentElement;
+                html.style.fontSize = ratio * 100 + 'px';
+        }
+        refreshRem();
+        window.addEventListener('resize',refreshRem);
+    </script>
+    <!-- <link rel="stylesheet" href="./css/1.css"> -->
+</head>
+<body>
+    <section id="wrap">
+        <div id="th">
+            <div id="head">
+            </div>
+            <ul id="ul">
+            </ul>
+        </div>
+    </section>
+    <script>
+        fetch('./data.json').then(d=>d.json()).then(d=>{   
+            console.log(d)
+            let html = '';
+            d.forEach(ele => {
+                let {onoff,title,pic,xl} = ele;
+                html +=`
+                <li>
+                    ${onoff?'<img class="icon" src="http://gw.alicdn.com/tfs/TB1ajLehrH1gK0jSZFwXXc7aXXa-102-69.png_110x10000.jpg_.webp">':''}
+                    <img class="pic" src="${pic}">
+                    <p>${title}</p>
+                    <span>${xl}</span>
+                </li>
+                `;
+            });
+            ul.innerHTML = html;
+        });
+    </script>
+</body>
+</html>

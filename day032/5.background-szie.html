@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            /* 
+                如果写一个值是按照宽来走,搞就自适应
+            */
+            /* background-size:50px auto;*/
+            /* 一个是设置宽一个是设置高 */
+            /* background-size:200px 200px */
+            /* background-size:cover;*/
+            /* 任意填满一边就够了 */
+            /* background-size:contain; */
+        }
+        ul{
+            display: flex;
+        }
+        li{
+            width: 40px;
+            height: 40px;
+            background: url('./nav.png') 0 0 no-repeat;
+            background-size:40px auto;
+        }
+        ul li:nth-child(1){
+            background-position: 0 0;
+        }
+        ul li:nth-child(2){
+            background-position: 0 -40px;
+        }
+        ul li:nth-child(3){
+            background-position: 0 -80px;
+        }
+        ul li:nth-child(4){
+            background-position: 0 -120px;
+        }
+        ul li:nth-child(5){
+            background-position: 0 -160px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

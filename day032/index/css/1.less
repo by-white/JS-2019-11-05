@@ -1,0 +1,58 @@
+@r:0.01rem;
+.w(@a){
+    width:@a * @r;
+}
+.h(@a){
+    height:@a * @r;
+}
+.m(@a){
+    margin: (@a * @r) auto;
+}
+.ml(@a){
+    margin-left: @a * @r;
+}
+.mr(@a){
+    margin-right: @a * @r;
+}
+.mt(@a){
+    margin-top: @a * @r;
+} 
+.mb(@a){
+    margin-bottom: @a * @r;
+} 
+.df(){
+    display:flex;
+}
+.jc(){
+    justify-content: center;
+}
+.jb(){
+    justify-content:space-between;
+}
+.ac(){
+    align-items:center;
+}
+.bg(@url){
+    background:url(@url) no-repeat;
+}
+.pr(){
+    position: relative;
+}
+.pa(){
+    position: absolute;
+}
+.l(@a){
+    left: @a * @r;
+}
+.t(@a){
+    top: @a * @r;
+}
+.bz(@a,@b){
+    background-size: @a*@r @b*@r;
+}
+.cc(){
+    .jc();
+    .ac();
+}
+
+

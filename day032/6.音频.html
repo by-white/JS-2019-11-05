@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            border: 1px solid salmon;
+            _margin: 10% auto;
+            text-align: center;
+        }
+
+        #myM {
+            width: 800px;
+            height: 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border: 3px solid rgba(248, 234, 37, 0.6);
+            margin: 2% auto;
+            border-radius: 50px;
+            background-image: linear-gradient(to right, rgb(148, 148, 248), rgb(245, 134, 245), rgb(148, 148, 248));
+        }
+
+        #myM li {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        #myM li:active {
+            border-radius: 50%;
+
+        }
+
+        #myM li:nth-child(1) {
+            background: url('img/上一首.png') center center no-repeat;
+            background-size: cover;
+        }
+
+        #myM li:nth-child(2) {
+            background: url('img/play.png') center center no-repeat;
+            background-size: cover;
+        }
+
+        #myM li:nth-child(3) {
+            background: url('img/pause.png') center center no-repeat;
+            background-size: cover;
+            display: none;
+        }
+
+        #myM li:nth-child(4) {
+            background: url('img/下一首.png') center center no-repeat;
+            background-size: cover;
+        }
+
+        #myM li:nth-child(5) {
+            position: relative;
+            width: 360px;
+            height: 6px;
+            background: rgba(248, 234, 37, 0.6);
+            border-radius: 50px;
+        }
+
+        #myM li:nth-child(6) {
+            background: url('img/音量-3.png') center center no-repeat;
+            background-size: cover;
+            margin-left: 40px;
+        }
+
+        #myM li:nth-child(7) {
+            position: relative;
+            width: 120px;
+            height: 6px;
+            background: rgba(248, 234, 37, 0.6);
+            border-radius: 50px;
+            display: none;
+        }
+
+        #myM li>span {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #999;
+            border-radius: 50%;
+            box-shadow: 0px 0px 0px 4px #ccc;
+            left: 0;
+            top: -2px;
+            cursor: pointer;
+        }
+
+        #myM li>div {
+            position: absolute;
+            left: 370px;
+            top: -6px;
+            cursor: pointer;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <audio src="./李健,吴秀波 - 朋友 + 和自己赛跑的人(Live).mp3" id="au"></audio>
+    <ul id="myM">
+        <li id="prev"></li>
+        <li id="play"></li>
+        <li id="pause"></li>
+        <li id="next"></li>
+        <li id="length">
+            <span id="btn1"></span>
+            <div id="now">00:00</div>
+        </li>
+        <li id="voice"></li>
+        <li id="v_length">
+            <span id="btn2"></span>
+        </li>
+    </ul>
+    <script>
+        let onoff = true;
+        play.onclick = function () {
+            au.play(); //播放
+            play.style.display = 'none';
+            pause.style.display = 'block';
+            //console.log(au.duration);//歌曲的总时长 按秒计算 
+        }
+        pause.onclick = function () {
+            au.pause(); //播放
+            play.style.display = 'block';
+            pause.style.display = 'none';
+        }
+        voice.onclick = function () {
+            if (onoff) {
+                v_length.style.display = 'block';
+            } else {
+                v_length.style.display = 'none';
+            }
+            onoff = !onoff;
+        }
+        
+        au.ontimeupdate = function () {
+            //console.log(au.currentTime);
+            let m = parseInt(au.currentTime / 60) > 9 ? parseInt(au.currentTime / 60) : "0" + parseInt(au.currentTime / 60);
+            let s = parseInt(au.currentTime % 60) > 9 ? parseInt(au.currentTime % 60) : "0" + parseInt(au.currentTime % 60);
+            now.innerHTML = m + ':' + s;
+            btn1.style.left = au.currentTime / au.duration * 360 + 'px';
+        }
+
+        btn1.onmousedown = function(ev){
+            let disX = btn1.offsetLeft;
+            document.onmousemove = function(ev){
+                let t = ev.pageX - disX;
+                if(t < 0){
+                    t = 0;
+                }else if(t > length.offsetWidth - btn1.offsetWidth){
+                    t = length.offsetWidth - btn1.offsetWidth;
+                }
+
+                let scale = 1 - t/(length.offsetWidth - btn1.offsetWidth);
+
+                au.volume = scale;
+                btn1.style.left = t + 'px';
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+            }
+
+        }
+        
+
+
+    </script>
+</body>
+
+</html>
