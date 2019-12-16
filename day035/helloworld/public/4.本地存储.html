@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            padding: 30px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <ul id="ul"></ul> -->
+    <h1 id="h1"></h1>
+    <div id="box">
+        用户名:<input type="text" id="user" />
+        密码:<input type="password" id="pw" />
+        <button id="btn">登录</button>
+    </div>
+    <script>
+        /*
+           刷新之后还有（数据是不变的）
+
+           1.刷新之后请求一次数据
+           2.把数据存储在浏览器中
+               cookie
+                   - 后端技术,基于浏览器实现的(一半都是后端来设置,也可以前端来种)
+                   - 用来存储用户的操作信息
+                   - 一次http请求(填写用户密码),后端只知道这次请求某人是否合法,http是无状态的,不能记录某人登陆过账户
+                   所以说使用cookie去存储某个人操作,下次请求的时候,把上一次的操作发给后端,就知道某人是否登陆过账户
+
+                   localStorage
+                   seesionStorage
+
+        */
+        // ajax('data.xml',{
+        //     dataType:'xml'
+        // }).then(d=>{
+        //     const person = d.getElementsByTagName('person');
+        //     let temp = '';
+        //     for(let i=0;i<person.length;i++){
+        //         temp += `<li>我的名字叫:${person[i].children[0].innerHTML},今年${person[i].children[1].innerHTML}岁,我想说:${person[i].children[3].innerHTML}</li>`
+        //     }
+        //     ul.innerHTML = temp;
+        //     // console.log(person);
+        // })
+
+        console.log(document.cookie); //读操作
+
+        document.cookie = 'name=pq';  //写操作
+
+        document.cookie = 'age=13';
+
+        console.log(document.cookie);  //读操作
+        /* 
+        
+            *读操作需要注意的是,一次读取会把当前域名下的所有cookie都获取出来
+            格式为 'key=val; key2=val2',分号后面有空格
+        
+        */
+
+        let o = new Date();
+        o.setDate(new Date().getDate() + 1);
+
+        console.log(o);
+
+        document.cookie = 'name=pq; expires=' + o;
+
+        /* 
+            cookie的生命周期
+                默认的生命周期是当浏览器关闭,生命就结束
+
+                如果不要走默认的生命周期使用 expires
+
+                expires=需要设置的时间
+
+                let o = new Date();
+                o.setDate(new Date().getDate()+1);//比当前时间多一天
+
+                document.cookie = 'name=pq; expires='+o;
+
+        cookie, 在以前每个域名只能设置几个或者几十个,字字千金,现在据说有5M
+
+        cookie必须使用服务器环境
+
+        
+        */
+        let sql = [
+            {
+                user: '郝永旺',
+                pw: 123
+            },
+            {
+                user: '尹德智',
+                pw: 321
+            }
+        ];
+
+        setCookie('name','xxoo',{
+            setTime:{
+                data:10
+            }
+        });
+
+        function setCookie(key,val,time){
+            if (time) {
+                let o 
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
