@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <h2> {{}}</h2>
+        <span>{{msg1}}</span>
+        <span>{{name}}</span>  
+        <hr> 
+        <ul>
+            <li> <h2> v-for</h2></li>
+            <li>冒号前声明为val,输出顺序均为val,key</li>
+            <li v-for="(val,key) in obj">{{val}}:{{key}}</li>
+            <li v-for="(val,key) in ary">{{val}}:{{key}}</li>
+            <li>冒号前声明为key,输出顺序均为val,key</li>
+            <li v-for="(key,val) in obj">{{val}}:{{key}}</li> 
+            <li v-for="(key,val) in ary">{{val}}:{{key}}</li> 
+        </ul>
+        <hr>
+        <button @click="show">显示{{msg}}</button>
+        </br >
+        <ul>
+            <li> <h2> v-if与v-show</h2></li>
+            <li v-if="bol" v-for="(key,val) in obj">{{val}}:{{key}}</li>  
+            <li v-show="!bol" v-for="(key,val) in ary">{{key}}</li> 
+        </ul>
+        <h2>v-if与v-else</h2>
+        <div v-if="bol">成功显示:{{msg}}</div>
+        <div v-else>成功显示:{{msg}}</div>
+        <hr>
+        <h2>v-if与v-else-if</h2>
+        <div v-if="num[0] === 'a'">A</div>
+        <div v-else-if="num[1] === 'b'">B</div>
+        <div v-else-if="num[2] === 'c'">C</div>
+        <div v-else-if="num[3] === 'd'">D</div>
+        <div v-else>{{num}}</div>
+        <hr>
+        <div v-for="item in items">{{item}}</div>
+        <div v-for="item in items">{{item.msg}}</div>
+        <div v-for="(item,i) in items">{{parentMsg}} - {{i}} - {{item.msg}}</div>
+        <h2>在v-for中可以用of代替in</h2>
+        <div v-for="(item,i) of items">{{parentMsg}} - {{i}} - {{item.msg}}</div>
+        <h2>在v-for中使用对象</h2>
+        <div v-for="(val,key,index) of ob">{{val}}-{{key}}-{{index}}</div>
+        <hr>
+    </div>
+<script src="./vue.js"></script>
+<script>
+    let v = new Vue({
+        el:'#box',
+        data:{
+            name:'小明',
+            ary:['小花','小刚','小猪'],
+            obj:{
+                '小花':18,
+                '小刚':19,
+                '小猪':17
+            },
+            obj1:{
+                '小花':18,
+                '小刚':19,
+                '小猪':17
+            },
+            ob:{
+                a:'小花',
+                b:'小刚',
+                c:'小猪'
+            },
+            bol:false,
+            msg:'姓名',
+            msg1:'姓名',
+            msg2:'姓名:年龄',
+            num:['a','b','c','d'],
+            items:[
+                {msg:'小花'},
+                {msg:'小刚'},
+                {msg:'小猪'}
+            ],
+            parentMsg:'Parent'
+        },
+        methods:{
+            show:function(){
+                this.bol = !this.bol;
+                if (this.bol) {
+                    this.msg = this.msg2
+                }else{
+                    this.msg = this.msg1
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
