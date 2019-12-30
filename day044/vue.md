@@ -1,10 +1,10 @@
 ### Vue
 
-    - jquery   (一开始) 
-    - angular  (其次)
-    - react    (其次)
-    - vue      (最新,中国人研发)  尤雨溪
-    
+    - jquery   (一开始)                  52.8k
+    - angular  (其次)                    55.8k
+    - react    (其次)                    141k
+    - vue      (最新中国人研发) 尤雨溪    155k
+
     - MVVM框架  Model View  View Model
     - M-model数据，V-view视图  C-控制器control
 
