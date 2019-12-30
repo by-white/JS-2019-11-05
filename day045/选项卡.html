@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+       <button @click="fn0">按钮一</button>
+       <button @click="fn1">按钮二</button>
+       <button @click="fn2">按钮三</button>
+       <div v-if="bol===0">111111</div>
+       <div v-else-if="bol===1">222222</div>
+       <div v-else>333333</div>
+    </div>
+<script src="./vue.js"></script>
+<script>
+    //挂载元素不能挂body和html
+    let v = new Vue({
+        el:'#box',
+        data:{  
+            bol:0
+        },
+        methods:{
+            fn0:function(){
+                this.bol = 0  
+                //alert(this.bol)
+            },
+            fn1:function(){
+                this.bol = 1  
+            },
+            fn2:function(){
+                this.bol = 2  
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //问题  writable:false与get,set同时会报错
+    //    精度问题
+   /* 
+    数据拦截(劫持)   双向数据绑定
+    Object.defineProperty(obj,prop,desc) 
+                          对象 属性 描述 
+  */
+    let obj = {name:'haha'};
+
+    //obj.age = 2;
+    
+    let num = 0;
+    
+    Object.defineProperty(obj,'age',{
+        //value:4,
+        //writable:false,   //属性是否可以被修改
+        //enumerable:false,  //属性是否可以被枚举
+        //configurable:false,  //属性是否可以被删除
+        get(){
+            //当读取这个属性的时候触发
+            //console.log('读了');
+            //return后的内容就是读操作后的结果(必须写return)
+            return num +=3.7;
+        }/* ,
+        set(val){
+            //当写操作(这个属性)的时候触发(可以没有return的)
+            console.log('写也来了')
+            //console.log(val); //5
+            num = val;
+        }  */
+    });
+
+    //console.log(obj.age)
+  /*   console.log(num)
+
+     for(let attr in obj){
+        console.log(attr); 
+    }  */
+
+   // obj.age = 6; 
+   /*  console.log(delete obj.name) //被删除
+    console.log(delete obj.age)  //没有被删除
+    console.log(obj)  //点进去点开age属性才会读 */
+    //console.log(obj.age)
+    console.log(obj.age < 4 && obj.age > 5);
+    console.log(obj.age)
+
+</script>
+</body>
+</html>
