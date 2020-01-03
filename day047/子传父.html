@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>父元素</h1>
+        <button @click="change">父元素按钮{{num}}</button>
+        <hr>
+        <!-- 使用组件 -->
+        <temp
+            :nn="num"
+            @child="change">
+            
+        </temp>
+    </div>
+
+    <template id="temp">
+        <div>
+            <h5>子元素</h5>
+            <button 
+            @click="add">
+               子按钮{{nn}}
+            </button>
+        </div>
+    </template>
+
+
+    <script src="./vue.js"></script>
+    <script>
+        //定义组件
+        const temp = {
+            template:"#temp",
+            props:['nn'],
+            methods: {
+                //添加一个事件给子组件
+                add(){
+                    this.$emit('child');
+                      // console.log( this.$emit)
+                }
+            },
+        }
+        new Vue({
+           el:"#app",
+           data:{
+             num:0
+           },
+           methods:{
+               change(){
+                   this.num++;
+               }
+           },
+           components:{
+               //注册组件
+               temp
+           }
+
+        })        
+    </script>
+</body>
+</html>

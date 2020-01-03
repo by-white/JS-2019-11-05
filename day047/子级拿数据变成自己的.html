@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>父元素</h1>
+        <button @click="change">父元素按钮{{num}}</button>
+        <hr>
+        <!-- 声明子组件temp -->
+        <temp
+            :nn="num"   
+            @childto="fromChild"
+        ></temp>
+    </div>
+    <!-- 引用子组件temp -->
+    <template id="temp">
+        <div>
+            <h5>子元素</h5>
+            <button
+                @click="add"
+            >子按钮{{cnum}}</button
+                >
+        </div>
+    </template>
+
+
+    <script src="./vue.js"></script>
+    <script>
+        //定义组件
+
+        const temp = {
+            template:'#temp',
+            props:['nn'],
+            data(){
+                return{
+                    cnum:this.nn
+                }
+            },
+            methods:{
+                add(){
+                    this.cnum +=2;
+                    this.$emit('childto',this.cnum)
+                }
+            } 
+        }
+
+        new Vue({
+            el:'#app',
+            data:{
+                num:0
+            },
+            methods: {
+                change(){
+                    this.num++;
+                },
+                fromChild(val){
+                    this.num = val;
+                }
+            },
+            components:{
+                //注册组件
+                temp
+            }
+        })
+    </script>
+</body>
+</html>
